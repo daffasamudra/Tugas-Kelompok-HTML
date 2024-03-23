@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Cake Collection</title>
+  <style>
+    /* CSS Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    .cake {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 20px;
+      justify-items: center;
+    }
+    .cake img {
+      width: 100%;
+      height: auto;
+    }
+    .cake-info {
+      text-align: center;
+    }
+    .add-to-cart {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    /* Stil Halaman Login */
+    .login-container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Blissful Bite Cake</h1>
+  </header>
+  <nav>
+    <a href="signup_login.html">Login</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="cart.html">Keranjang</a>
+  </nav>
+  <div class="container">
+    <div class="cake">
+      <!-- Kue 1 -->
+      <div>
+        <img src="d:\cake1.jpeg" alt="Birthday Cake 1">
+        <div class="cake-info">
+          <p>Burnt Cheesecake</p>
+          <p>Rp 50.0000</p>
+          <button class="add-to-cart" onclick="addToCart('Cake 1')">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Kue 2 -->
+      <div>
+        <img src="cake2.jpg" alt="Birthday Cake 2">
+        <div class="cake-info">
+          <p>Description: Vanilla sponge cake with strawberry filling.</p>
+          <button class="add-to-cart" onclick="addToCart('Cake 2')">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Kue 3 -->
+      <div>
+        <img src="cake3.jpg" alt="Birthday Cake 3">
+        <div class="cake-info">
+          <p>Description: Rich red velvet cake with cream cheese frosting.</p>
+          <button class="add-to-cart" onclick="addToCart('Cake 3')">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Kue 4 -->
+      <div>
+        <img src="cake4.jpg" alt="Birthday Cake 4">
+        <div class="cake-info">
+          <p>Description: Moist carrot cake with walnuts and raisins.</p>
+          <button class="add-to-cart" onclick="addToCart('Cake 4')">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Kue 5 -->
+      <div>
+        <img src="cake5.jpg" alt="Birthday Cake 5">
+        <div class="cake-info">
+          <p>Description: Classic butter cake with buttercream frosting.</p>
+          <button class="add-to-cart" onclick="addToCart('Cake 5')">Add to Cart</button>
+        </div>
+      </div>
+      <!--cake 6-->
+      <div>
+        <img src="cake4.jpg" alt="Birthday Cake 4">
+        <div class="cake-info">
+          <p>Description: Moist carrot cake with walnuts and raisins.</p>
+          <button class="add-to-cart" onclick="addToCart('Cake 4')">Add to Cart</button>
+        </div>
+      </div>
+      <!--cake 7-->
+      <div>
+        <img src="cake4.jpg" alt="Birthday Cake 4">
+        <div class="cake-info">
+          <p>Description: Moist carrot cake with walnuts and raisins.</p>
+          <button class="add-to-cart" onclick="addToCart('Cake 4')">Add to Cart</button>
+        </div>
+      </div>
+      <!--cake 8-->
+      <div>
+        <img src="cake4.jpg" alt="Birthday Cake 4">
+        <div class="cake-info">
+          <p>Description: Moist carrot cake with walnuts and raisins.</p>
+          <button class="add-to-cart" onclick="addToCart('Cake 4')">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 Birthday Cake Collection</p>
+  </footer>
+
+  <!-- Formulir Login -->
+  <div class="login-container" style="display:none;">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="button" onclick="login()">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function addToCart(cakeName, cakePrice) {
+  var cartItem = {
+    name: cakeName,
+    price: cakePrice
+  };
+  var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  cartItems.push(cartItem);
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  alert(cakeName + " added to cart!");
+}
+
+
+    function login() {
+      var fullName = document.getElementById("fullName").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      // Simulasikan otentikasi (ganti dengan logika otentikasi aktual Anda)
+      if (fullName === "John Doe" && email === "john@example.com" && password === "password") {
+        alert("Login berhasil. Mengalihkan ke halaman checkout.");
+        window.location.href = "checkout.html"; // Alihkan ke halaman checkout
+      } else {
+        alert("Kredensial tidak valid. Silakan coba lagi.");
+      }
+    }
+  </script>
+</body>
+</html>
